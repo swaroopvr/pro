@@ -1,0 +1,30 @@
+
+<div class="table-view">
+	<table>
+		<caption>LIST OF BIT_SEL COMMANDS</caption>
+		<thead>
+			<tr>
+				<th> BIT_SEL_TBL_NO </th>
+				<th> BIT_SEL_TBL_NAME </th>
+
+			</tr>
+		</thead>
+		<tbody>
+		<% @bit_infos.each do |f| %>
+		<tr data-href="<%= edit_bit_sel_tbl_info_path(f) %>"  class="theShower text-center">
+	
+		
+		<td><%= f.BIT_SEL_TBL_NO  %></td>
+				<td><%= f.BIT_SEL_TBL_NAME %></td>
+				<% if current_user.admin? %>	<!-- add this too -->
+					<td class="deleter"><%= link_to "x", f , method: :delete, data: { confirm: "You sure?" } %></td>	<!-- add this too -->
+				<% end %>
+			
+		</tr>	
+		<% end %>
+		</tbody>
+	</table>
+
+	</div>
+	<%= link_to 'Add', new_bit_sel_tbl_info_path, class: "add-new-table" %>
+	<!--<%= link_to 'New', new_bit_sel_tbl_info_path %>-->

@@ -1,0 +1,33 @@
+
+
+<div class="table-view">
+	<table>
+		<caption>LIST OF CONFIRMER</caption>
+		<thead>
+			<tr>
+				<th>  POSITION</th>
+				<th> NAME </th>
+
+			</tr>
+		</thead>
+<tbody>
+
+<% @confs.each do |f| %>
+<tr data-href="<%= edit_confirmer_tbl_path(f) %>"  class="theShower text-center">
+	
+		
+						<td><%= f.POSITION %></td>
+				<td><%= f.NAME  %></td>
+				<% if current_user.admin? %>	<!-- add this too -->
+					<td class="deleter"><%= link_to "x", f , method: :delete, data: { confirm: "You sure?" } %></td>
+					<%end%>
+			</tr>
+  			<% end %>
+				</tbody>
+	</table>
+	</div>
+
+
+<%= link_to 'Add', new_confirmer_tbl_path, class: "add-new-table" %>	
+
+<!--<%= link_to 'New', new_confirmer_tbl_path %>-->

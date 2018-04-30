@@ -1,0 +1,32 @@
+
+
+
+<div class="table-view">
+	<table>
+		<caption>LIST OF PREFERRABLE_DECODER COMMANDS</caption>
+		<thead>
+			<tr>
+				<th> ID </th>
+				<th> PREFERRABLE_DECODER  </th>
+
+			</tr>
+		</thead>
+		<tbody>
+		
+<% @pref_decoder.each do |f| %>
+		<tr data-href="<%= edit_preferrable_decoder_tbl_path(f) %>"  class="theShower text-center">
+	
+		
+		<td><%= f.ID  %></td>
+				<td><%= f.PREFERRABLE_DECODER %></td>
+				<% if current_user.admin? %>	<!-- add this too -->
+					<td class="deleter"><%= link_to "x", f , method: :delete, data: { confirm: "You sure?" } %></td>	<!-- add this too -->
+				<% end %>
+			
+		</tr>	
+		<% end %>
+		</tbody>
+	</table>
+
+	</div>
+	<%= link_to 'Add', new_preferrable_decoder_tbl_path, class: "add-new-table" %>

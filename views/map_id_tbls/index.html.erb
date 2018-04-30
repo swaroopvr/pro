@@ -1,0 +1,30 @@
+
+
+<div class="table-view">
+	<table>
+		<caption>LIST OF MAP_ID COMMANDS</caption>
+		<thead>
+			<tr>
+				<th> ID </th>
+				<th> MAP_ID </th>
+
+			</tr>
+		</thead>
+		<tbody>
+		<% @map_id.each do |f| %>
+		<tr data-href="<%= edit_map_id_tbl_path(f) %>"  class="theShower text-center">
+	
+		
+		<td><%= f.ID  %></td>
+				<td><%= f.MAP_ID %></td>
+				<% if current_user.admin? %>	<!-- add this too -->
+					<td class="deleter"><%= link_to "x", f , method: :delete, data: { confirm: "You sure?" } %></td>	<!-- add this too -->
+				<% end %>
+			
+		</tr>	
+		<% end %>
+		</tbody>
+	</table>
+
+	</div>
+	<%= link_to 'Add', new_map_id_tbl_path, class: "add-new-table" %>
