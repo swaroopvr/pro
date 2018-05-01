@@ -1,0 +1,41 @@
+<% breadcrumb :new_expr,@base_cmds %>
+<h1>CREATE EXPRESSION </h1>
+<div class="perfect-forms">
+<%= form_for(@exprs) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+<div class="form-row">
+  <%= f.label :EXPR_ID %>
+  <%= f.text_field :EXPR_ID, class: 'form-control' %>
+  </div>
+
+<div class="form-row">
+  <%= f.label :EXPR_TYPE %>
+  <%= f.text_field :EXPR_TYPE, class: 'form-control' %>
+  </div>
+
+<div class="form-row">  
+  <%= f.label :TM_PID%>
+  <%= f.text_field :TM_PID, class: 'form-control' %>
+  </div>
+
+  <div class="form-row">
+  <%= f.label :REL_OP%>
+  <%= f.text_field :REL_OP, class: 'form-control' %>
+  </div>
+
+<div class="form-row">
+  <%= f.label :VALUE%>
+  <%= f.text_field :VALUE, class: 'form-control' %>
+  </div>
+
+<div class="form-row">
+  <%= f.label :VALUE_TYPE%>
+  <%= f.text_field :VALUE_TYPE, class: 'form-control' %>
+  </div>
+
+<div class="form-row">
+  <%= f.submit 'Create', class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
